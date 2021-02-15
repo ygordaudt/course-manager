@@ -6,12 +6,51 @@ import { Course } from "./course";
 })
 export class CourseService {
 
+    _courses: Course[] = [];
+    _isCoursesFilled: boolean = false;
+
     retrieveAll(): Course[] {
-        return COURSES;
+        if (!this._isCoursesFilled) {
+            _COURSES.forEach((courseIterator: Course) => this._courses.push(courseIterator));
+            this._isCoursesFilled = true;
+        }
+
+        return this._courses;
     }
+
+    retriveById(id: number): Course {
+        return this._courses.find((courseIterator: Course) => courseIterator.id === id);
+    }
+
+    edit(course: Course): void {
+        if (course.id) {
+            const index = this._courses.findIndex((courseIterator: Course) => courseIterator.id === course.id);
+            this._courses[index] = course;
+        }
+    }
+
+    create(course: Course): void {
+        this._courses.push(course);
+    }
+
+    remove(course: Course): void {
+        let index = this._courses.findIndex((courseIterator: Course) => courseIterator.id === course.id);
+        this._courses.splice(index, 1);
+    }
+
+    getLastId(): number {
+        let lastId: number = 0;
+        this._courses.forEach((courseIterator: Course) => {
+            if (courseIterator.id > lastId) {
+                lastId = courseIterator.id;
+            }
+        });
+        return lastId;
+    }
+
 }
 
-var COURSES: Course[] = [
+var _COURSES: Course[] = [
     {
         id: 1,
         name: 'Angular: CLI',

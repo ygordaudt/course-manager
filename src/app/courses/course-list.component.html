@@ -4,7 +4,7 @@
     <label class="col-sm-2 col-form-label">Filter By: </label>
     
     <div class="col-sm-10">
-        <input [(ngModel)]="filter" class="form-control">
+        <input [(ngModel)]="filter" class="form-control" placeholder="Type it">
     </div>
 </div>
 
@@ -17,8 +17,13 @@
             <th>Code</th>
             <th>Release Date</th>
             <th>Rating</th>
+            <th>
+                <a class="btn btn-primary" [routerLink]="['/courses/info']">Add</a>
+            </th>
+            <th></th>
         </tr>
     </thead>
+
     <tbody>
         <tr *ngFor="let c of filteredCourses">
             <td><img [src]="c.imageUrl" width="40" height="40"></td>
@@ -29,7 +34,14 @@
             <td>
                 <app-star [rating]="c.rating"></app-star>
             </td>
+            <td>
+                <a [routerLink]="['/courses/info', c.id]" class="btn btn-secondary">Edit</a>
+            </td>
+            <td>
+                <a class="btn btn-danger" (click)="remove(c)">Remove</a>
+            </td>
         </tr>
     </tbody>
-    
 </table>
+
+<span>{{filteredCourses.length}} found(s)</span>
