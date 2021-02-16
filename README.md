@@ -1,5 +1,9 @@
 # CourseManager
 
+![](/img/course-manager-list.png)
+
+![](/img/course-manager-info.png)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.0.
 
 ## Development server
@@ -25,3 +29,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Running NodeJS
+
+Run `node serve.js` for a dev server. The webservices list are at `course-manager-server\serve.js` and may be access by the link `http://localhost:3100/api/`
