@@ -1,8 +1,8 @@
 # CourseManager
 
-![](/img/course-manager-list.png)
+![](img/course-manager-list.PNG)
 
-![](/img/course-manager-info.png)
+![](img/course-manager-info.PNG)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.0.
 
